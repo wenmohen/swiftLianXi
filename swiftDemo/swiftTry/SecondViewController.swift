@@ -9,7 +9,8 @@
 import UIKit
 
 
-class SecondViewController: UIViewController,FTVCdelegte{
+class SecondViewController: UIViewController,FTVCdelegte,ChangeBtnDelege{
+    @IBOutlet weak var editBtn: UIButton!
     var base: baseClass = baseClass()
     var myStr=String()
     var tmpString=String()
@@ -33,6 +34,9 @@ class SecondViewController: UIViewController,FTVCdelegte{
         // Do any additional setup after loading the view.
     }
 
+    func changeBtnBackgroundColor(color:UIColor){
+        self.editBtn.backgroundColor=color
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -61,12 +65,19 @@ class SecondViewController: UIViewController,FTVCdelegte{
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let threeVC = storyboard.instantiateViewController(withIdentifier: "threeViewControllerID") as! threeViewController
         threeVC.delegate_zsj = self
+        threeVC.delegateChangeBtn=self
         
         threeVC.bbchange={
             ( title:String,myColor:UIColor) in
             self.title=title
             self.view.backgroundColor=myColor
         }
+        
+        threeVC.changeMyBtnTitle={
+            (myBtnTitle:String) in
+            self.editBtn.setTitle(myBtnTitle, for: UIControlState.normal)
+        }
+        
         self.navigationController?.pushViewController(threeVC, animated: true)
     }
     

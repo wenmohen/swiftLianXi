@@ -89,9 +89,18 @@
                                     <action selector="tiaozhuanBtnAction:" destination="mb2-Fq-UTn" eventType="touchUpInside" id="V4L-9I-miY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7VY-3r-fzO">
+                                <rect key="frame" x="151" y="479" width="126" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.89288666869306688" green="0.36166497525405217" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="编辑"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.84833806339999995" blue="0.91960542300000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="editBtn" destination="7VY-3r-fzO" id="zda-iB-bv6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PcT-Xi-Tww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
