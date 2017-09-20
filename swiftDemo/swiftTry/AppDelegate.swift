@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let secondVC = storyboard.instantiateViewController(withIdentifier: "SecondViewControllerID") as! SecondViewController
+//        let nav=UINavigationController(rootViewController: secondVC)
+//        self.window?.rootViewController=nav
         return true
     }
 

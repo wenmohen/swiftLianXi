@@ -8,13 +8,27 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
 
+class SecondViewController: UIViewController,FTVCdelegte{
+    var base: baseClass = baseClass()
     var myStr=String()
+    var tmpString=String()
     
+    //实现协议的方法
+    //更改主题名字
+    func change(title: String) {
+//        self.title = title
+    }
+    //更改背景色
+    func ChangeColoer(Coloer: UIColor) {
+//        self.view.backgroundColor = Coloer
+    }
+    //是否成功
+    func ChangSucces(YON: Bool) {
+        print(YON)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         print("myStr内容是多少:\(myStr)")
         // Do any additional setup after loading the view.
     }
@@ -36,7 +50,25 @@ class SecondViewController: UIViewController {
     */
 
     @IBAction func BackLastVCAction(_ sender: Any) {
-        
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
+    
+    @IBAction func tiaozhuanBtnAction(_ sender: Any) {
+        UserDefaults().setValue("王珊", forKey: "userName")
+        self.base.cacheSetString(key: "sign", value: "通过NSUserDefaults传递方式3")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let threeVC = storyboard.instantiateViewController(withIdentifier: "threeViewControllerID") as! threeViewController
+        threeVC.delegate_zsj = self
+        
+        threeVC.bbchange={
+            ( title:String,myColor:UIColor) in
+            self.title=title
+            self.view.backgroundColor=myColor
+        }
+        self.navigationController?.pushViewController(threeVC, animated: true)
+    }
+    
+    
 }

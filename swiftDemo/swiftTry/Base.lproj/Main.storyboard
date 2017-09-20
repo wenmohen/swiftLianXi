@@ -40,6 +40,15 @@
                                     <action selector="clickTiaoZhanAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="338-C2-8rm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmB-2G-iqG">
+                                <rect key="frame" x="140" y="162" width="94" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.54197509323543169" blue="0.35554104834795242" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="测试传值"/>
+                                <connections>
+                                    <segue destination="mb2-Fq-UTn" kind="presentation" id="W1j-hn-Uep"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -71,6 +80,15 @@
                                     <action selector="BackLastVCAction:" destination="mb2-Fq-UTn" eventType="touchUpInside" id="Tav-9o-Jgp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M13-0Q-QPw">
+                                <rect key="frame" x="151" y="356" width="103" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93975573779999999" green="0.45754563809999999" blue="0.42932611700000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="跳转"/>
+                                <connections>
+                                    <action selector="tiaozhuanBtnAction:" destination="mb2-Fq-UTn" eventType="touchUpInside" id="V4L-9I-miY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.84833806339999995" blue="0.91960542300000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -78,6 +96,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PcT-Xi-Tww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="788" y="138.98050974512745"/>
+        </scene>
+        <!--Three View Controller-->
+        <scene sceneID="JQq-Tw-cSE">
+            <objects>
+                <viewController storyboardIdentifier="threeViewControllerID" id="4Cd-0O-rhY" customClass="threeViewController" customModule="swiftTry" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fuN-FB-LGu"/>
+                        <viewControllerLayoutGuide type="bottom" id="3mc-Kz-abi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZxC-6Z-JIf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdi-rl-yau">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.84833806339999995" blue="0.91960542300000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="返回"/>
+                                <connections>
+                                    <action selector="backBtnAction:" destination="4Cd-0O-rhY" eventType="touchUpInside" id="foS-q8-hD2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sSZ-Os-Nrv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1424.8" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
