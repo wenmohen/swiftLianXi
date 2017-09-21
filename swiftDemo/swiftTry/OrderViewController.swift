@@ -29,7 +29,13 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 55
+        if section == titleArr.count-1{
+            return 50
+        }else{
+              return 55
+            
+        }
+
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -161,6 +167,7 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
     func _loadInitView(){
         self.orderTableView.dataSource=self
         self.orderTableView.delegate=self
+//        self.orderTableView.tableFooterView=UIView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -169,6 +176,8 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     
+    
+    //去掉组头组尾悬浮
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        let offsetY = self.orderTableView.contentOffset.y
 //        let sectionHeaderHeight:CGFloat = 50
