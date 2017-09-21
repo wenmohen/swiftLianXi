@@ -65,7 +65,7 @@ class ActivityAlertView: UIView {
         self.startView.ratingMax=5
         self.startView.rating = 3.8
         self.scoreLabel.text = "3.8"
-        self.shopNamelabel.text="乡雅菜馆（拱北店）"
+//        self.shopNamelabel.text="乡雅菜馆（拱北店）"
         self.deliveryInfoLabel.text="起送 ￥"+"23"+" | 配送 ￥"+"2.5"+" | "+"30"+"分钟"
         self.deliveryTimeLabel.text="配送时间："+"09：39-11:00"
         

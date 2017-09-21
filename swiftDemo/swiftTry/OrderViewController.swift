@@ -107,6 +107,8 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
 = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCellID") as! OrderTableViewCell
             cell.backgroundColor=UIColor.white
             cell._loadCellData(dic: arrData[indexPath.row] as! NSDictionary)
+            cell.evaluateButton.addTarget(self, action: #selector(ClickEvaluateButtonAction), for: UIControlEvents.touchUpInside)
+            cell.evaluateButton.tag=10+indexPath.row
             return cell
         }else {
             let  cell:myCollectionTabCell
@@ -119,6 +121,11 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
         }
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let oneVC = storyboard.instantiateViewController(withIdentifier: "ViewControllerID") as! ViewController
+        self.navigationController?.pushViewController(oneVC, animated: true)
+    }
     func headerViewTapGesture(tap:UITapGestureRecognizer){
         print("点击了组头\(tap.view?.tag ?? 99)")
     }
@@ -177,6 +184,7 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     
     
+    
     //去掉组头组尾悬浮
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        let offsetY = self.orderTableView.contentOffset.y
@@ -191,6 +199,25 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
 //        }
     }
 
+    
+    
+    
+    //按钮响应事件
+    func ClickEvaluateButtonAction(button:UIButton){
+        let myView = Bundle.main.loadNibNamed("ActivityAlertView", owner: nil, options: nil)?.first as? ActivityAlertView
+        myView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        myView?.center = self.view.center
+        let mydic = arrData[button.tag-10] as! NSDictionary
+        print(arrData[button.tag-10])
+        myView?.shopNamelabel.text = mydic["shopInfo"] as? String
+        myView?.jianStringPT = "满减"
+        if myView != nil {
+            self.view.addSubview(myView!)
+        }
+
+    }
+    
+    
     /*
     // MARK: - Navigation
 

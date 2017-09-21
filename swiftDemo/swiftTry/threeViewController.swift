@@ -56,21 +56,21 @@ class threeViewController: UIViewController {
 
     /*
     // MARK: - Navigation
-
+    */
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let theSegue=segue.destination as! SecondViewController
+        theSegue.myStr="第三个控制器传值"
     }
-    */
+ 
 
     @IBAction func backBtnAction(_ sender: UIButton) {
         delegate_zsj?.change(title: "首页")
         delegate_zsj?.ChangeColoer(Coloer: UIColor.red)
         delegate_zsj?.ChangSucces(YON: true)
         delegateChangeBtn?.changeBtnBackgroundColor(color: UIColor.gray)
-        
-
         bbchange?("文档",UIColor.green)
         changeMyBtnTitle?("完成")
         self.navigationController?.popViewController(animated: true)
