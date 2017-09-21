@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C163B86C1F721F92000905F3 /* threeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C163B86B1F721F92000905F3 /* threeViewController.swift */; };
+		C163B86E1F72399D000905F3 /* baseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C163B86D1F72399D000905F3 /* baseClass.swift */; };
 		C1AC464D1F6FF91F00063466 /* ActivityAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC464B1F6FF91F00063466 /* ActivityAlertView.swift */; };
 		C1AC464E1F6FF91F00063466 /* ActivityAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1AC464C1F6FF91F00063466 /* ActivityAlertView.xib */; };
 		C1B3E4921F4E519400D69722 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B3E4911F4E519400D69722 /* AppDelegate.swift */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		C151C2291F6038E500004B08 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		C163B86B1F721F92000905F3 /* threeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = threeViewController.swift; sourceTree = "<group>"; };
+		C163B86D1F72399D000905F3 /* baseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = baseClass.swift; sourceTree = "<group>"; };
 		C1AC464B1F6FF91F00063466 /* ActivityAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityAlertView.swift; sourceTree = "<group>"; };
 		C1AC464C1F6FF91F00063466 /* ActivityAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityAlertView.xib; sourceTree = "<group>"; };
 		C1B3E48E1F4E519400D69722 /* swiftTry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftTry.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +113,8 @@
 				C1B3E4911F4E519400D69722 /* AppDelegate.swift */,
 				C1B3E4931F4E519400D69722 /* ViewController.swift */,
 				C1CD54BE1F71186500EAB2F9 /* SecondViewController.swift */,
+				C163B86B1F721F92000905F3 /* threeViewController.swift */,
+				C163B86D1F72399D000905F3 /* baseClass.swift */,
 				C1BB77E11F70EED300A91E60 /* RatingBar.swift */,
 				C1AC464B1F6FF91F00063466 /* ActivityAlertView.swift */,
 				C1AC464C1F6FF91F00063466 /* ActivityAlertView.xib */,
@@ -279,6 +285,8 @@
 				C1AC464D1F6FF91F00063466 /* ActivityAlertView.swift in Sources */,
 				C1CD54BF1F71186500EAB2F9 /* SecondViewController.swift in Sources */,
 				C1B3E4921F4E519400D69722 /* AppDelegate.swift in Sources */,
+				C163B86E1F72399D000905F3 /* baseClass.swift in Sources */,
+				C163B86C1F721F92000905F3 /* threeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
