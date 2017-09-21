@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     
     var button1=UIButton()
 
+
     
         override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,6 @@ class ViewController: UIViewController {
             button1.setTitle("跳转present", for: UIControlState.normal)
             button1.addTarget(self, action: #selector(Button1Action), for: UIControlEvents.touchUpInside)
             self.view.addSubview(button1)
-            
             var button2=UIButton()
             button2=UIButton(type: UIButtonType.system)
             button2.frame = CGRect(x:100,y:100,width:100,height:30)

@@ -64,6 +64,7 @@ class SecondViewController: UIViewController,FTVCdelegte,ChangeBtnDelege{
         self.base.cacheSetString(key: "sign", value: "通过NSUserDefaults传递方式3")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let threeVC = storyboard.instantiateViewController(withIdentifier: "threeViewControllerID") as! threeViewController
+        threeVC.myStr="控制器2向控制器3传值"
         threeVC.delegate_zsj = self
         threeVC.delegateChangeBtn=self
         

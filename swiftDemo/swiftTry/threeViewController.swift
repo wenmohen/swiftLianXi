@@ -34,9 +34,14 @@ class threeViewController: UIViewController {
     
     var base: baseClass = baseClass()
     
+    var myStr=String()
+
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        print("页面属性传值：\(myStr)")
         print(base.cacheGetString(key: "sign"))
         print(UserDefaults().string(forKey: "userName") ?? "")
         
