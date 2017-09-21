@@ -10,6 +10,7 @@ import UIKit
 
 class myCollectionTabCell: UITableViewCell {
 
+    @IBOutlet weak var ratingScoreBarView: RatingBar!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
