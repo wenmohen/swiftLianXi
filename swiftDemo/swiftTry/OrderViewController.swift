@@ -114,6 +114,7 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
             let  cell:myCollectionTabCell
                 = tableView.dequeueReusableCell(withIdentifier: "myCollectionTabCellID") as! myCollectionTabCell
             cell.backgroundColor=UIColor.white
+            cell.ratingScoreBarView.isIndicator = true
 //            cell._loadCellData(dic: arrData[indexPath.row] as! NSDictionary)
             return cell
             
@@ -122,9 +123,17 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let oneVC = storyboard.instantiateViewController(withIdentifier: "ViewControllerID") as! ViewController
-        self.navigationController?.pushViewController(oneVC, animated: true)
+        if indexPath.section == 0 {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let oneVC = storyboard.instantiateViewController(withIdentifier: "ViewControllerID") as! ViewController
+            self.navigationController?.pushViewController(oneVC, animated: true)
+        }else
+        {
+            let storyboard = UIStoryboard(name: "home", bundle: nil)
+            let typeVC = storyboard.instantiateViewController(withIdentifier: "typeViewControllerID") as! typeViewController
+            self.navigationController?.pushViewController(typeVC, animated: true)
+        }
+       
     }
     func headerViewTapGesture(tap:UITapGestureRecognizer){
         print("点击了组头\(tap.view?.tag ?? 99)")

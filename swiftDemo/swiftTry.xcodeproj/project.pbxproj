@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C10E9FAC1F740257003AED58 /* likeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10E9FAB1F740257003AED58 /* likeCollectionCell.swift */; };
+		C10E9FB61F741364003AED58 /* typeHeaderCollReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10E9FB51F741364003AED58 /* typeHeaderCollReusableView.swift */; };
+		C10E9FB81F741386003AED58 /* typeFooterCollReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10E9FB71F741386003AED58 /* typeFooterCollReusableView.swift */; };
+		C142D4BA1F73BA52003E84FC /* typeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C142D4B91F73BA52003E84FC /* typeViewController.swift */; };
+		C15206F91F7358A400DD9F05 /* baseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15206F81F7358A400DD9F05 /* baseViewController.swift */; };
+		C15206FD1F7359C400DD9F05 /* baseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15206FC1F7359C400DD9F05 /* baseButton.swift */; };
+		C15206FF1F735BD500DD9F05 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15206FE1F735BD500DD9F05 /* OrderViewController.swift */; };
+		C15207011F735C2600DD9F05 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15207001F735C2600DD9F05 /* OrderTableViewCell.swift */; };
+		C15207031F7386BB00DD9F05 /* myCollectionTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15207021F7386BA00DD9F05 /* myCollectionTabCell.swift */; };
 		C163B86C1F721F92000905F3 /* threeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C163B86B1F721F92000905F3 /* threeViewController.swift */; };
 		C163B86E1F72399D000905F3 /* baseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C163B86D1F72399D000905F3 /* baseClass.swift */; };
+		C17973891F73C0470012701E /* headView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17973881F73C0470012701E /* headView.xib */; };
 		C1AC464D1F6FF91F00063466 /* ActivityAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC464B1F6FF91F00063466 /* ActivityAlertView.swift */; };
 		C1AC464E1F6FF91F00063466 /* ActivityAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1AC464C1F6FF91F00063466 /* ActivityAlertView.xib */; };
 		C1B3E4921F4E519400D69722 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B3E4911F4E519400D69722 /* AppDelegate.swift */; };
@@ -20,6 +30,7 @@
 		C1B3E4B21F4E519400D69722 /* swiftTryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B3E4B11F4E519400D69722 /* swiftTryUITests.swift */; };
 		C1BB77E21F70EED300A91E60 /* RatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB77E11F70EED300A91E60 /* RatingBar.swift */; };
 		C1CD54BF1F71186500EAB2F9 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CD54BE1F71186500EAB2F9 /* SecondViewController.swift */; };
+		C1D74F821F734E80003F6CFE /* home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D74F811F734E80003F6CFE /* home.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +51,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C10E9FAB1F740257003AED58 /* likeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = likeCollectionCell.swift; sourceTree = "<group>"; };
+		C10E9FB51F741364003AED58 /* typeHeaderCollReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = typeHeaderCollReusableView.swift; sourceTree = "<group>"; };
+		C10E9FB71F741386003AED58 /* typeFooterCollReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = typeFooterCollReusableView.swift; sourceTree = "<group>"; };
+		C142D4B91F73BA52003E84FC /* typeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = typeViewController.swift; sourceTree = "<group>"; };
 		C151C2291F6038E500004B08 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		C15206F81F7358A400DD9F05 /* baseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baseViewController.swift; sourceTree = "<group>"; };
+		C15206FC1F7359C400DD9F05 /* baseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baseButton.swift; sourceTree = "<group>"; };
+		C15206FE1F735BD500DD9F05 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		C15207001F735C2600DD9F05 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		C15207021F7386BA00DD9F05 /* myCollectionTabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myCollectionTabCell.swift; sourceTree = "<group>"; };
 		C163B86B1F721F92000905F3 /* threeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = threeViewController.swift; sourceTree = "<group>"; };
 		C163B86D1F72399D000905F3 /* baseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = baseClass.swift; sourceTree = "<group>"; };
+		C17973881F73C0470012701E /* headView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = headView.xib; sourceTree = "<group>"; };
 		C1AC464B1F6FF91F00063466 /* ActivityAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityAlertView.swift; sourceTree = "<group>"; };
 		C1AC464C1F6FF91F00063466 /* ActivityAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityAlertView.xib; sourceTree = "<group>"; };
 		C1B3E48E1F4E519400D69722 /* swiftTry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftTry.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +81,7 @@
 		C1B3E4B31F4E519400D69722 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1BB77E11F70EED300A91E60 /* RatingBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingBar.swift; sourceTree = "<group>"; };
 		C1CD54BE1F71186500EAB2F9 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		C1D74F811F734E80003F6CFE /* home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = home.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,10 +137,21 @@
 				C1CD54BE1F71186500EAB2F9 /* SecondViewController.swift */,
 				C163B86B1F721F92000905F3 /* threeViewController.swift */,
 				C163B86D1F72399D000905F3 /* baseClass.swift */,
+				C15206F81F7358A400DD9F05 /* baseViewController.swift */,
+				C15206FE1F735BD500DD9F05 /* OrderViewController.swift */,
+				C15207021F7386BA00DD9F05 /* myCollectionTabCell.swift */,
+				C15206FC1F7359C400DD9F05 /* baseButton.swift */,
+				C142D4B91F73BA52003E84FC /* typeViewController.swift */,
+				C10E9FB71F741386003AED58 /* typeFooterCollReusableView.swift */,
+				C10E9FB51F741364003AED58 /* typeHeaderCollReusableView.swift */,
+				C10E9FAB1F740257003AED58 /* likeCollectionCell.swift */,
+				C15207001F735C2600DD9F05 /* OrderTableViewCell.swift */,
+				C17973881F73C0470012701E /* headView.xib */,
 				C1BB77E11F70EED300A91E60 /* RatingBar.swift */,
 				C1AC464B1F6FF91F00063466 /* ActivityAlertView.swift */,
 				C1AC464C1F6FF91F00063466 /* ActivityAlertView.xib */,
 				C1B3E4951F4E519400D69722 /* Main.storyboard */,
+				C1D74F811F734E80003F6CFE /* home.storyboard */,
 				C1B3E4981F4E519400D69722 /* Assets.xcassets */,
 				C1B3E49A1F4E519400D69722 /* LaunchScreen.storyboard */,
 				C1B3E49D1F4E519400D69722 /* Info.plist */,
@@ -213,6 +246,7 @@
 				TargetAttributes = {
 					C1B3E48D1F4E519300D69722 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 2W6AN3V26A;
 						ProvisioningStyle = Automatic;
 					};
 					C1B3E4A11F4E519400D69722 = {
@@ -252,7 +286,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1D74F821F734E80003F6CFE /* home.storyboard in Resources */,
 				C1B3E49C1F4E519400D69722 /* LaunchScreen.storyboard in Resources */,
+				C17973891F73C0470012701E /* headView.xib in Resources */,
 				C1B3E4991F4E519400D69722 /* Assets.xcassets in Resources */,
 				C1AC464E1F6FF91F00063466 /* ActivityAlertView.xib in Resources */,
 				C1B3E4971F4E519400D69722 /* Main.storyboard in Resources */,
@@ -281,11 +317,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1BB77E21F70EED300A91E60 /* RatingBar.swift in Sources */,
+				C142D4BA1F73BA52003E84FC /* typeViewController.swift in Sources */,
 				C1B3E4941F4E519400D69722 /* ViewController.swift in Sources */,
+				C10E9FB61F741364003AED58 /* typeHeaderCollReusableView.swift in Sources */,
 				C1AC464D1F6FF91F00063466 /* ActivityAlertView.swift in Sources */,
 				C1CD54BF1F71186500EAB2F9 /* SecondViewController.swift in Sources */,
 				C1B3E4921F4E519400D69722 /* AppDelegate.swift in Sources */,
+				C15207031F7386BB00DD9F05 /* myCollectionTabCell.swift in Sources */,
+				C15207011F735C2600DD9F05 /* OrderTableViewCell.swift in Sources */,
+				C10E9FB81F741386003AED58 /* typeFooterCollReusableView.swift in Sources */,
+				C15206FD1F7359C400DD9F05 /* baseButton.swift in Sources */,
+				C15206F91F7358A400DD9F05 /* baseViewController.swift in Sources */,
 				C163B86E1F72399D000905F3 /* baseClass.swift in Sources */,
+				C15206FF1F735BD500DD9F05 /* OrderViewController.swift in Sources */,
+				C10E9FAC1F740257003AED58 /* likeCollectionCell.swift in Sources */,
 				C163B86C1F721F92000905F3 /* threeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -427,7 +472,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -440,7 +485,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2W6AN3V26A;
 				INFOPLIST_FILE = swiftTry/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ning.swiftTry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -452,7 +499,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2W6AN3V26A;
 				INFOPLIST_FILE = swiftTry/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ning.swiftTry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
