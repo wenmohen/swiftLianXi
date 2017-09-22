@@ -129,7 +129,7 @@
                                                     <color key="backgroundColor" red="0.98597301806834403" green="1" blue="0.24581942939929646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="千秋便当屋(珠海拱北店)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKY-LW-ihd">
-                                                    <rect key="frame" x="114" y="5" width="169" height="29"/>
+                                                    <rect key="frame" x="114" y="5" width="169" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -243,6 +243,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="customSize" width="111" height="150"/>
                                         <connections>
+                                            <outlet property="picImageView" destination="YLW-bA-vXt" id="4Qr-gT-OwT"/>
                                             <outlet property="titleLabel" destination="SNd-pE-elQ" id="znL-YZ-Tai"/>
                                         </connections>
                                     </collectionViewCell>
