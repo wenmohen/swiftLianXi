@@ -13,6 +13,7 @@ class typeHeaderCollReusableView: UICollectionReusableView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var clickButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
+    @IBOutlet weak var bgLBView: UIView!
 
 
 }

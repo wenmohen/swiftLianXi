@@ -8,7 +8,7 @@
 
 import UIKit
 
-class typeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+class typeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,SliderGalleryControllerDelegate {
     var dataArr:Array<Any> = []
     var dataArr2:Array<Any> = []
     var dataArr3:Array<Any> = []
@@ -19,6 +19,12 @@ class typeViewController: UIViewController,UICollectionViewDelegate,UICollection
     let screenh = UIScreen.main.bounds.size.height//整个屏幕的高
     
     let screenw = UIScreen.main.bounds.size.width//整个屏幕的宽
+    //获取屏幕宽度
+    let screenWidth =  UIScreen.main.bounds.size.width
+    
+    //图片轮播组件
+    var sliderGallery : SliderGalleryController!
+    
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -46,7 +52,7 @@ class typeViewController: UIViewController,UICollectionViewDelegate,UICollection
             return CGSize(width:(self.screenw-40)/5,height:(self.screenw-40)/4+40)
         }
         else {
-            return CGSize(width:(self.screenw-40)/3,height:(self.screenw-40)/3+40)
+            return CGSize(width:(self.screenw-40)/3-1,height:(self.screenw-40)/3+40)
         }
     }
     
@@ -54,11 +60,23 @@ class typeViewController: UIViewController,UICollectionViewDelegate,UICollection
         return CGSize(width:screenw,height:50)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width:screenw,height:50)
+        if section == 0 {
+            
+            return CGSize(width:screenw,height:200)
+            
+        }else
+        {
+            return CGSize(width:screenw,height:50)
+            
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+           return UIEdgeInsets(top:10,left:10,bottom:10,right:10)
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
+      
         let sectionView:UICollectionReusableView=UICollectionReusableView()
+      
         if kind == UICollectionElementKindSectionFooter  {
          let sectionFooterView:typeFooterCollReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "typeSectionFooterViewID", for: indexPath) as! typeFooterCollReusableView
             sectionFooterView.lineView.frame=CGRect(x:0,y:0,width:screenw,height:0.5)
@@ -72,10 +90,25 @@ class typeViewController: UIViewController,UICollectionViewDelegate,UICollection
             sectionHeadView.titleLabel.text=titleArr[indexPath.section] as? String
             if indexPath.section == 0{
                 sectionHeadView.clickButton.isHidden=false
+                sectionHeadView.bgLBView.isHidden=false
             }else
             {
                 sectionHeadView.clickButton.isHidden=true
+                 sectionHeadView.bgLBView.isHidden=true
             }
+            //初始化图片轮播组件
+            sliderGallery = SliderGalleryController()
+            sliderGallery.delegate = self
+            sliderGallery.view.frame = CGRect(x:0,y:0,width:screenw,height:150);
+            
+            //将图片轮播组件添加到当前视图
+            self.addChildViewController(sliderGallery)
+            sectionHeadView.bgLBView.addSubview(sliderGallery.view)
+            
+            //添加组件的点击事件
+            let tap = UITapGestureRecognizer(target: self,
+                                             action: #selector(typeViewController.handleTapAction(_:)))
+            sliderGallery.view.addGestureRecognizer(tap)
             return sectionHeadView
         }else{
             return sectionView
@@ -117,19 +150,46 @@ class typeViewController: UIViewController,UICollectionViewDelegate,UICollection
         dataArr3=["魔道祖师","全职高手","白夜行"]
         titleArr=["猜你喜欢","最近浏览","热销书籍","精品听单","综艺娱乐"]
        picColorArr=[UIColor.purple,UIColor.blue,UIColor.orange,UIColor.green,UIColor.brown]
-        self.typeCollectionView.delegate=self
-        self.typeCollectionView.dataSource=self
-//        self.typeCollectionViewFlowLayout.itemSize = CGSize(width:(screenw-40)/3,height:(screenw-40)/3+40)
-        self.typeCollectionViewFlowLayout.minimumLineSpacing=10
-        self.typeCollectionViewFlowLayout.minimumInteritemSpacing=10
-        self.typeCollectionViewFlowLayout.sectionInset = UIEdgeInsets(top:10,left:10,bottom:10,right:10)
-//        self.typeCollectionView.register(UINib.init(nibName:"typeFooterCollReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "typeSectionFooterViewID")
-//         self.typeCollectionView.register(UINib.init(nibName:"typeHeaderCollReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "typeSectionHeaderViewID")
-
-      
+       
+        self._initViewUI()
+        
+        
+        
+       
         // Do any additional setup after loading the view.
     }
 
+    func _initViewUI() {
+        self._initCollectionUI()
+        self._initScrollViewUI()
+    }
+    
+    func _initCollectionUI(){
+        self.typeCollectionView.delegate=self
+        self.typeCollectionView.dataSource=self
+        //        self.typeCollectionViewFlowLayout.itemSize = CGSize(width:(screenw-40)/3,height:(screenw-40)/3+40)
+        self.typeCollectionViewFlowLayout.minimumLineSpacing=10
+        self.typeCollectionViewFlowLayout.minimumInteritemSpacing=10
+        //        self.typeCollectionViewFlowLayout.sectionInset = UIEdgeInsets(top:10,left:10,bottom:10,right:10)
+   
+    }
+    
+    func _initScrollViewUI() {
+//        //初始化图片轮播组件
+//        sliderGallery = SliderGalleryController()
+//        sliderGallery.delegate = self
+//        sliderGallery.view.frame = CGRect(x:0,y:0,width:screenw,height:150);
+//
+//        //将图片轮播组件添加到当前视图
+//        self.addChildViewController(sliderGallery)
+//        self.bgLBView.addSubview(sliderGallery.view)
+//
+//        //添加组件的点击事件
+//        let tap = UITapGestureRecognizer(target: self,
+//                                         action: #selector(typeViewController.handleTapAction(_:)))
+//        sliderGallery.view.addGestureRecognizer(tap)
+    }
+    
     func huanYiPiButtonAction(button:UIButton) {
         print(button.tag-200)
         if button.tag-200 == 1  {
@@ -140,6 +200,31 @@ class typeViewController: UIViewController,UICollectionViewDelegate,UICollection
 //        self.typeCollectionView.reloadSections([(section:button.tag-200) as! Int])
     }
     
+    //图片轮播组件协议方法：获取内部scrollView尺寸
+    func galleryScrollerViewSize() -> CGSize {
+        return CGSize(width: screenWidth, height:150)
+    }
+
+    //图片轮播组件协议方法：获取数据集合
+    func galleryDataSource() -> [String] {
+        return ["https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4278045673,1225611433&fm=27&gp=0.jpg",
+                "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1729574112,1149336453&fm=27&gp=0.jpg",
+                "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1490267196,968967990&fm=27&gp=0.jpg",
+                "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=731229049,139289674&fm=27&gp=0.jpg"]
+    }
+
+    //点击事件响应
+    func handleTapAction(_ tap:UITapGestureRecognizer)->Void{
+        //获取图片索引值
+        let index = sliderGallery.currentIndex
+        //弹出索引信息
+        let alertController = UIAlertController(title: "您点击的图片索引是：",
+                                                message: "\(index)", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
