@@ -13,6 +13,8 @@ class typeViewController: UIViewController,UICollectionViewDelegate,UICollection
     var dataArr2:Array<Any> = []
 
     var titleArr:Array<Any> = []
+    var picColorArr:Array<UIColor> = []
+
     let screenh = UIScreen.main.bounds.size.height//整个屏幕的高
     
     let screenw = UIScreen.main.bounds.size.width//整个屏幕的宽
@@ -30,6 +32,20 @@ class typeViewController: UIViewController,UICollectionViewDelegate,UICollection
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return titleArr.count
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.section == 1 {
+             return CGSize(width:(self.screenw-40)/2,height:(self.screenw-40)/3+40)
+        }else if(indexPath.section == 2){
+            return CGSize(width:(self.screenw-40),height:(self.screenw-40)/3+40)
+        }else if(indexPath.section == 3){
+            return CGSize(width:(self.screenw-40)/5,height:(self.screenw-40)/4+40)
+        }
+        else {
+            return CGSize(width:(self.screenw-40)/3,height:(self.screenw-40)/3+40)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return CGSize(width:screenw,height:50)
     }
@@ -69,6 +85,8 @@ class typeViewController: UIViewController,UICollectionViewDelegate,UICollection
         {
         cell.titleLabel.text=dataArr2[indexPath.row] as? String
         }
+        cell.picImageView.backgroundColor=picColorArr[indexPath.section]
+        
         return cell
     }
     
@@ -87,10 +105,11 @@ class typeViewController: UIViewController,UICollectionViewDelegate,UICollection
         super.viewDidLoad()
         dataArr=["天天口语","段子来了","明朝那些事儿","夜色钢琴曲儿","读者(人文)","郭德纲相声十年经典"]
         dataArr2=["魔道祖师","全职高手","白夜行","解忧杂货店"]
-        titleArr=["猜你喜欢","最近浏览","最热有声书","精品听单","综艺娱乐"]
+        titleArr=["猜你喜欢","最近浏览","热销书籍","精品听单","综艺娱乐"]
+        picColorArr=[UIColor.purple,UIColor.blue,UIColor.orange,UIColor.green,UIColor.brown]
         self.typeCollectionView.delegate=self
         self.typeCollectionView.dataSource=self
-        self.typeCollectionViewFlowLayout.itemSize = CGSize(width:(screenw-40)/3,height:(screenw-40)/3+40)
+//        self.typeCollectionViewFlowLayout.itemSize = CGSize(width:(screenw-40)/3,height:(screenw-40)/3+40)
         self.typeCollectionViewFlowLayout.minimumLineSpacing=10
         self.typeCollectionViewFlowLayout.minimumInteritemSpacing=10
         self.typeCollectionViewFlowLayout.sectionInset = UIEdgeInsets(top:10,left:10,bottom:10,right:10)

@@ -11,4 +11,5 @@ import UIKit
 class likeCollectionCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
 
+    @IBOutlet weak var picImageView: UIImageView!
 }
