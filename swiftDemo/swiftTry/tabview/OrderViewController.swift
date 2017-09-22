@@ -10,13 +10,17 @@ import UIKit
 
 class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var arrData:Array<Any> = []
+    var arrData2:Array<Any> = []
     var titleArr:Array<Any> = []
     let screenh = UIScreen.main.bounds.size.height//整个屏幕的高
     let screenw = UIScreen.main.bounds.size.width//整个屏幕的宽
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 3
-        }else {
+            return arrData.count
+        }else if(section == 1 ){
+            return arrData2.count
+            }
+        else {
             return 2
         }
     }
@@ -140,6 +144,20 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     func footerViewTapGesture(tap:UITapGestureRecognizer){
         print("点击了组尾\(tap.view?.tag ?? 999)")
+        if tap.view?.tag == 1000 {
+           arrData=[["totalPrice":"45","orderTime" :"2017-09-08 12：00" ,"shopInfo" :"香禾米线" ],["totalPrice":"15" ,"orderTime" :"2017-09-10 12:23" ,"shopInfo" :"柳州螺蛳粉" ],["totalPrice":"22" ,"orderTime" :"2017-09-09 10：22" ,"shopInfo" :"铜锣湾米线" ],["totalPrice":"4","orderTime" :"2017-09-08 12：00" ,"shopInfo" :"香禾米线" ],["totalPrice":"115" ,"orderTime" :"2017-09-10 12:23" ,"shopInfo" :"柳州螺蛳粉" ],["totalPrice":"202" ,"orderTime" :"2017-09-09 10：22" ,"shopInfo" :"铜锣湾米线" ],["totalPrice":"435","orderTime" :"2017-09-08 12：00" ,"shopInfo" :"香禾米线" ],["totalPrice":"15" ,"orderTime" :"2017-09-10 12:23" ,"shopInfo" :"柳州螺蛳粉" ]]
+            self.orderTableView.reloadSections([0], with: .fade)
+
+        }else if(tap.view?.tag == 1001){
+//        arrData2=[["totalPrice":"45","orderTime" :"2017-09-08 12：00" ,"shopInfo" :"香禾米线" ],["totalPrice":"15" ,"orderTime" :"2017-09-10 12:23" ,"shopInfo" :"柳州螺蛳粉" ],["totalPrice":"22" ,"orderTime" :"2017-09-09 10：22" ,"shopInfo" :"铜锣湾米线" ],["totalPrice":"4","orderTime" :"2017-09-08 12：00" ,"shopInfo" :"香禾米线" ]]
+//        self.orderTableView.reloadSections([1], with: .fade)
+
+    }
+//        let indexPath: IndexPath = IndexPath.init(row: 1, section: 0)
+//        self.orderTableView.reloadRows(at: [indexPath], with: .fade)
+        // 刷新第几组，直接传入要刷新的组数集合 “[section]”
+//        self.orderTableView.reloadSections([0,1,2,3], with: .fade)
+//        self.orderTableView.reloadData()
     }
     
     
@@ -172,7 +190,8 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
     @IBOutlet weak var orderTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        arrData=[["totalPrice":"45","orderTime" :"2017-09-08 12：00" ,"shopInfo" :"香禾米线" ],["totalPrice":"15" ,"orderTime" :"2017-09-10 12:23" ,"shopInfo" :"柳州螺蛳粉" ],["totalPrice":"22" ,"orderTime" :"2017-09-09 10：22" ,"shopInfo" :"铜锣湾米线" ],["totalPrice":"4","orderTime" :"2017-09-08 12：00" ,"shopInfo" :"香禾米线" ],["totalPrice":"115" ,"orderTime" :"2017-09-10 12:23" ,"shopInfo" :"柳州螺蛳粉" ],["totalPrice":"202" ,"orderTime" :"2017-09-09 10：22" ,"shopInfo" :"铜锣湾米线" ],["totalPrice":"435","orderTime" :"2017-09-08 12：00" ,"shopInfo" :"香禾米线" ],["totalPrice":"15" ,"orderTime" :"2017-09-10 12:23" ,"shopInfo" :"柳州螺蛳粉" ]]
+        arrData=[["totalPrice":"45","orderTime" :"2017-09-08 12：00" ,"shopInfo" :"香禾米线" ],["totalPrice":"15" ,"orderTime" :"2017-09-10 12:23" ,"shopInfo" :"柳州螺蛳粉" ],["totalPrice":"22" ,"orderTime" :"2017-09-09 10：22" ,"shopInfo" :"铜锣湾米线" ]]
+        arrData2=[["totalPrice":"45","orderTime" :"2017-09-08 12：00" ,"shopInfo" :"香禾米线" ],["totalPrice":"15" ,"orderTime" :"2017-09-10 12:23" ,"shopInfo" :"柳州螺蛳粉" ]]
         
         titleArr=["我的订单","我的收藏","最近浏览","我的喜欢"]
        _loadInitView()
