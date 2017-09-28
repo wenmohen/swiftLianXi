@@ -120,6 +120,7 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
             cell.backgroundColor=UIColor.white
             cell.ratingScoreBarView.isIndicator = true
 //            cell._loadCellData(dic: arrData[indexPath.row] as! NSDictionary)
+
             return cell
             
             
@@ -139,6 +140,70 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
         }
        
     }
+    
+
+    
+    //MARK:-----删除+移动
+    
+    //是否有删除功能
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath)
+        -> UITableViewCellEditingStyle
+    {
+        if(orderTableView.isEditing == false){
+            return UITableViewCellEditingStyle.none
+        }else{
+            return UITableViewCellEditingStyle.delete
+        }
+    }
+    
+    //删除提示
+    func tableView(_ tableView: UITableView,
+                   titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath)
+        -> String? {
+            return "确定删除？"
+    }
+    
+    //编辑完毕（这里只有删除操作）
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCellEditingStyle,
+                   forRowAt indexPath: IndexPath) {
+            if(editingStyle == UITableViewCellEditingStyle.delete)
+            {
+                arrData.remove(at: (indexPath as NSIndexPath).row)
+                orderTableView.reloadData()
+                print("你确认了删除按钮")
+            }
+       
+    }
+    
+    //在编辑状态，可以拖动设置cell位置
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+            return true
+    }
+    
+    //移动cell事件
+    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath,
+                   to toIndexPath: IndexPath) {
+      
+        if fromIndexPath != toIndexPath{
+            //获取移动行对应的值
+//            let itemValue:ListItem = listItems[(fromIndexPath as NSIndexPath).row]
+            //删除移动的值
+            arrData.remove(at: (fromIndexPath as NSIndexPath).row)
+            //如果移动区域大于现有行数，直接在最后添加移动的值
+            if (toIndexPath as NSIndexPath).row > arrData.count{
+                arrData.append(["totalPrice":"45","orderTime" :"2017-09-08 12：00" ,"shopInfo" :"香禾米线" ])
+            }else{
+                //没有超过最大行数，则在目标位置添加刚才删除的值
+                arrData.insert(["totalPrice":"45","orderTime" :"2017-09-08 12：00" ,"shopInfo" :"香禾米线" ], at:(toIndexPath as NSIndexPath).row)
+            }
+        }
+    }
+    //MARK:---删除cell结束
+    
+ 
+    
+    
     func headerViewTapGesture(tap:UITapGestureRecognizer){
         print("点击了组头\(tap.view?.tag ?? 99)")
     }
@@ -190,12 +255,19 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
     @IBOutlet weak var orderTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         arrData=[["totalPrice":"45","orderTime" :"2017-09-08 12：00" ,"shopInfo" :"香禾米线" ],["totalPrice":"15" ,"orderTime" :"2017-09-10 12:23" ,"shopInfo" :"柳州螺蛳粉" ],["totalPrice":"22" ,"orderTime" :"2017-09-09 10：22" ,"shopInfo" :"铜锣湾米线" ]]
         arrData2=[["totalPrice":"45","orderTime" :"2017-09-08 12：00" ,"shopInfo" :"香禾米线" ],["totalPrice":"15" ,"orderTime" :"2017-09-10 12:23" ,"shopInfo" :"柳州螺蛳粉" ]]
         
         titleArr=["我的订单","我的收藏","最近浏览","我的喜欢"]
        _loadInitView()
         // Do any additional setup after loading the view.
+   
+    
+      print("系统高：\(screenHeight)")
+//      self.view.backgroundColor=owerRandomColorAlpha(R:255,G:255,B:255,A:1.0)
+
     }
 
     //加载view
@@ -232,6 +304,7 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     //按钮响应事件
     func ClickEvaluateButtonAction(button:UIButton){
+         button.superview!.animateWhenClicked()
         let myView = Bundle.main.loadNibNamed("ActivityAlertView", owner: nil, options: nil)?.first as? ActivityAlertView
         myView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         myView?.center = self.view.center
@@ -245,6 +318,12 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
 
     }
     
+//    func myclicked(sender: UIButton) {
+//        sender.superview!.animateWhenClicked()
+//    }
+    
+    
+  
     
     /*
     // MARK: - Navigation
@@ -256,4 +335,38 @@ class OrderViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     */
 
+    
+    //编辑列表
+    @IBAction func editBtn(_ sender: UIButton) {
+        
+        //在正常状态和编辑状态之间切换
+        if(orderTableView.isEditing == false){
+            orderTableView.setEditing(true, animated:true)
+            sender.setTitle("保存", for: UIControlState.normal)
+        }
+        else{
+            orderTableView.setEditing(false, animated:true)
+            sender.setTitle("编辑", for: UIControlState.normal)
+
+        }
+        //重新加载表数据（改变单元格输入框编辑/只读状态）
+        orderTableView.reloadData()
+
+    }
+    
+    
 }
+
+
+
+extension UIView {
+    func animateWhenClicked() {
+        self.backgroundColor = UIColor(white: 0.9, alpha: 0.5)
+        self.layer.transform = CATransform3DMakeScale(1, 1, 0)
+        UIView.animate(withDuration: 0.9, animations: {
+            self.backgroundColor = UIColor.white
+            self.layer.transform = CATransform3DMakeTranslation(1, 1, 1)
+        })
+    }
+}
+

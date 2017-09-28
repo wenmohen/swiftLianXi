@@ -28,7 +28,6 @@ class OrderTableViewCell: UITableViewCell {
 //        self.orderTimeLabel.text="下单时间：" + String(describing: dic["orderTime"] ?? "")
         self.orderTimeLabel.text="下单时间：" + (dic["orderTime"] as? String)!
         self.shopInfoLaebl.text = (dic["shopInfo"] as? String)! + "(" + "拱北店" + ")"
-        print(dic.value(forKey: "totalPrice") ?? "" )
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

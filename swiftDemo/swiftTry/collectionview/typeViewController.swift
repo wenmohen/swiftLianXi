@@ -86,29 +86,35 @@ class typeViewController: UIViewController,UICollectionViewDelegate,UICollection
         }else if(kind == UICollectionElementKindSectionHeader){
          
             let sectionHeadView:typeHeaderCollReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "typeSectionHeaderViewID", for: indexPath) as! typeHeaderCollReusableView
-            sectionHeadView.lineView.frame=CGRect(x:0,y:49.5,width:screenw,height:0.5)
             sectionHeadView.titleLabel.text=titleArr[indexPath.section] as? String
             if indexPath.section == 0{
                 sectionHeadView.clickButton.isHidden=false
                 sectionHeadView.bgLBView.isHidden=false
+                sectionHeadView.titleView.frame=CGRect(x:0,y:150,width:screenw,height:50)
+                sectionHeadView.lineView.frame=CGRect(x:0,y:49.5,width:screenw,height:0.5)
+
+                //初始化图片轮播组件
+                sliderGallery = SliderGalleryController()
+                sliderGallery.delegate = self
+                sliderGallery.view.frame = CGRect(x:0,y:0,width:screenw,height:150);
+                
+                //将图片轮播组件添加到当前视图
+                self.addChildViewController(sliderGallery)
+                sectionHeadView.bgLBView.addSubview(sliderGallery.view)
+                
+                //添加组件的点击事件
+                let tap = UITapGestureRecognizer(target: self,
+                                                 action: #selector(typeViewController.handleTapAction(_:)))
+                sliderGallery.view.addGestureRecognizer(tap)
             }else
             {
                 sectionHeadView.clickButton.isHidden=true
-                 sectionHeadView.bgLBView.isHidden=true
+                sectionHeadView.bgLBView.isHidden=true
+                sectionHeadView.titleView.frame=CGRect(x:0,y:0,width:screenw,height:50)
+                sectionHeadView.lineView.frame=CGRect(x:0,y:49.5,width:screenw,height:0.5)
+
             }
-            //初始化图片轮播组件
-            sliderGallery = SliderGalleryController()
-            sliderGallery.delegate = self
-            sliderGallery.view.frame = CGRect(x:0,y:0,width:screenw,height:150);
-            
-            //将图片轮播组件添加到当前视图
-            self.addChildViewController(sliderGallery)
-            sectionHeadView.bgLBView.addSubview(sliderGallery.view)
-            
-            //添加组件的点击事件
-            let tap = UITapGestureRecognizer(target: self,
-                                             action: #selector(typeViewController.handleTapAction(_:)))
-            sliderGallery.view.addGestureRecognizer(tap)
+           
             return sectionHeadView
         }else{
             return sectionView
@@ -136,7 +142,8 @@ class typeViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let horiVC = UIStoryboard(name:"home",bundle:nil).instantiateViewController(withIdentifier: "horizontalScrollingVCID") as! horizontalScrollingVC
+        self.navigationController?.pushViewController(horiVC, animated: true)
     }
 
     @IBOutlet weak var typeCollectionView: UICollectionView!
